@@ -10,7 +10,7 @@ jobs:
 
   build:
       runs-on: ubuntu-latest
-      needs:my-job
+      needs: my-job
       steps:
         - run: echo "Building..."
 
