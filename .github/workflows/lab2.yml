@@ -1,32 +1,31 @@
 name: Lab2 actions
 
 on:
- push:
-  branches:
-   - main
+  push:
+    branches: main
   pull_request:
-    branches:
-      - main
+    branches: main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     strategy:
-     matrix:
-      node-version: [20, 21]
+      matrix:
+        node-version: [20, 21]
 
     steps:
-    - name: Checkout nodejs
-      uses: actions/checkout@v6
+      - name: Checkout nodejs
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v6
-      with:
-        node-version: '25'
-        cache: 'npm' 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
 
-    - name: install dependencies
-      run: npm ci
+      - name: install dependencies
+        run: npm ci
 
-    - name: run test
-      run: npm test
+      - name: run test
+        run: npm test
