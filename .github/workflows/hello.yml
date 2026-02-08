@@ -3,10 +3,10 @@ name: My First Workflow
 on: [push]
 
 jobs:
-  # my-job:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: echo "Hello, world!"
+  my-job:
+     runs-on: ubuntu-latest
+     steps:
+       - run: echo "Hello, world!"
 
   # build:
   #     runs-on: ubuntu-latest
@@ -18,15 +18,19 @@ jobs:
   #   runs-on: ubuntu-latest
   #   needs: build
   #   steps:
-  #     - run: echo "Testing..."
+#   #     - run: echo "Testing..."
 
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20.x, 21.x, 22.x]
-    steps:
-      - uses: actions/setup-node@v6
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm test
+#   test:
+#     runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         node-version: [20.x, 21.x, 22.x]
+#     steps:
+#       - uses: actions/setup-node@v6
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#       - run: npm test
+#   my-job:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo "Hello, world!"
